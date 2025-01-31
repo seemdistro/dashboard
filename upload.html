@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Release - Seemdistro</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container mt-4">
+        <div class="card">
+            <div class="card-header">
+                <h4>New Release Upload</h4>
+                <div class="progress mb-3">
+                    <div class="progress-bar" role="progressbar" id="formProgress"></div>
+                </div>
+            </div>
+            <div class="card-body">
+                <form id="releaseForm" class="needs-validation" novalidate>
+                    <!-- Step 1: Album Details -->
+                    <div class="form-step" id="step1">
+                        <h5>Step 1: Album Details</h5>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label class="form-label">Release Title*</label>
+                                <input type="text" class="form-control" placeholder="enter album title" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Artist*</label>
+                                <input type="text" class="form-control" placeholder="drake" required>
+                            </div>
+                             <div class="col-md-6">
+                                <label class="form-label">Label</label>
+                                <input type="text" class="form-control" placeholder="leave blank if not sure" optional>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Production Year*</label>
+                                <input type="number" class="form-control" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">℗ line*</label>
+                                <input type="text" class="form-control" placeholder="2022 Seemdistro" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">© line*</label>
+                                <input type="text" class="form-control" placeholder="2022 Seemdistro" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Genre*</label>
+                                <select class="form-select" required>
+                                    <option value="">Select Genre</option>
+                                    <option value="">African</option>
+                                    <option value="">Blues</option>
+                                    <option value="">Classical</option>
+                                    <option value="">Country</option>
+                                    <option value="">Electronic</option>
+                                    <option value="">Folk</option>
+                                    <option value="">Hip-Hop/Rap</option>
+                                    <option value="">Jazz</option>
+                                    <option value="">Pop</option>
+                                    <option value="">R&B</option>
+                                    <option value="">Reggae</option>
+                                    <option value="">Rock</option>
+                                    <option value="">World</option>
+                                    <!-- Add genres -->
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Language*</label>
+                                <select class="form-select" required>
+                                    <option value="">English</option>
+                                    <option value="">French</option>
+                                    <option value="">Spanish</option>
+                                    <option value="">Portuguese</option>
+                                    <option value="">Swahili</option>
+                                    <option value="">Yoruba</option>
+                                    <option value="">Igbo</option>
+                                    <option value="">Hausa</option>
+                                    <option value="">Zulu</option>
+                                    <option value="">Xhosa</option>
+                                    <option value="">Russian</option>
+                                    <option value="">German</option>
+                                    <option value="">Italian</option>
+                                    <option value="">Japanese</option>
+                                    <option value="">Chinese</option>
+                                    <option value="">Arabic</option>
+                                    <option value="">Hindi</option>
+                                    <option value="">Others</option>
+                                    <!-- Add languages -->
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Cover Art -->
+                    <div class="form-step d-none" id="step2">
+                        <h5>Step 2: Cover Art</h5>
+                        <div class="mb-3">
+                            <label class="form-label">Upload Cover Art (3000x3000px)*</label>
+                            <input type="file" class="form-control" accept="image/*" required>
+                            <div class="form-text">Must be JPG/PNG, minimum 3000x3000 pixels</div>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Tracks Upload -->
+                    <div class="form-step d-none" id="step3">
+                        <h5>Step 3: Track Upload</h5>
+                        <div id="tracksList">
+                            <div class="track-item card mb-3">
+                                <div class="card-body">
+                                    <div class="row g-3">
+                                        <div class="col-md-12">
+                                            <label class="form-label">Track File (WAV)*</label>
+                                            <input type="file" class="form-control" accept=".wav" required>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label">Composer*</label>
+                                            <input type="text" class="form-control" placeholder="seperate with comma" required>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label">Songwriters*</label>
+                                            <input type="text" class="form-control" placeholder="seperate with comma" required>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label">Producer</label>
+                                            <input type="text" class="form-control" placeholder="enter producer Name" >
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label">Lyricst*</label>
+                                            <input type="text" class="form-control" placeholder="seperate with comma" required>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label">ISRC Code</label>
+                                            <input type="text" class="form-control" placeholder="enter ISRC code, leave blank we generate" >
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label">Parental Advisory*</label>
+                                            <select class="form-select" required>
+                                                <option value="">Explicit</option>
+                                                <option value="">Non-Explicit</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-12"></div>
+                                        <div class="col-12">
+                                            <label class="form-label">Track Title*</label>
+                                            <input type="text" class="form-control" placeholder="enter track title" required>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-secondary" onclick="addTrack()">Add Another Track</button>
+                    </div>
+
+                    <!-- Step 4: Release Details -->
+                    <div class="form-step d-none" id="step4">
+                        <h5>Step 4: Release Details</h5>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label class="form-label">Digital Release Date*</label>
+                                <input type="date" class="form-control" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Original Release Date</label>
+                                <input type="date" class="form-control">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Territories*</label>
+                                <select class="form-select" required>
+                                    <option value="">Worldwide</option>
+                                    <option value="">United states</option>
+                                    <option value="">United Kingdom</option>
+                                    <option value="">Canada</option>
+                                    <option value="">Australia</option>
+                                    <option value="">France</option>
+                                    <option value="">Germany</option>
+                                    <option value="">Italy</option>
+                                    <option value="">Japan</option>
+                                    <option value="">Nigeria</option>
+                                    <option value="">South Africa</option>
+                                    <option value="">Russia</option>
+
+                                    <!-- Add territories -->
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Navigation Buttons -->
+                    <div class="mt-4">
+                        <button type="button" class="btn btn-secondary" id="prevBtn" onclick="prevStep()">Previous</button>
+                        <button type="button" class="btn btn-primary" id="nextBtn" onclick="nextStep()">Next</button>
+                        <button type="submit" class="btn btn-success d-none" id="submitBtn">Submit Release</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        let currentStep = 1;
+        const totalSteps = 4;
+
+        function updateProgress() {
+            const progress = (currentStep / totalSteps) * 100;
+            $('#formProgress').css('width', `${progress}%`);
+        }
+
+        function showStep(step) {
+            $('.form-step').addClass('d-none');
+            $(`#step${step}`).removeClass('d-none');
+            updateProgress();
+            
+            // Show/hide buttons based on step
+            if (step === 1) {
+                $('#prevBtn').addClass('d-none');
+            } else {
+                $('#prevBtn').removeClass('d-none');
+            }
+            
+            if (step === totalSteps) {
+                $('#nextBtn').addClass('d-none');
+                $('#submitBtn').removeClass('d-none');
+            } else {
+                $('#nextBtn').removeClass('d-none');
+                $('#submitBtn').addClass('d-none');
+            }
+        }
+
+        function nextStep() {
+            if (currentStep < totalSteps) {
+                currentStep++;
+                showStep(currentStep);
+            }
+        }
+
+        function prevStep() {
+            if (currentStep > 1) {
+                currentStep--;
+                showStep(currentStep);
+            }
+        }
+
+        function addTrack() {
+            const trackTemplate = $('#tracksList .track-item').first().clone();
+            trackTemplate.find('input').val('');
+            $('#tracksList').append(trackTemplate);
+        }
+
+        $('#releaseForm').on('submit', function(e) {
+            e.preventDefault();
+            // Add form submission logic here
+            
+            // Show success message and redirect
+            window.location.href = 'success.html';
+        });
+
+        // Initialize form
+        updateProgress();
+    </script>
+</body>
+</html>

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SeemDistro Client Portal</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        header {
+            background-color: #000000;
+            color: #fff;
+            padding: 1rem;
+            text-align: center;
+        }
+        nav {
+            display: flex;
+            justify-content: space-around;
+            background-color: #423ab5;
+            padding: 0.5rem;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+        }
+        nav a:hover {
+            background-color: #fff9f900;
+        }
+        .container {
+            padding: 2rem;
+        }
+        .card {
+            background-color: #f4f4f4;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 5px;
+        }
+        footer {
+            background-color: #000000;
+            color: #fff;
+            text-align: center;
+            padding: 1rem;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+        @media (max-width: 600px) {
+            nav {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <p>SeemDistro</p>
+    </header>
+    <style>
+        .sidebar {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #423cb9;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+        }
+        .sidebar a {
+            padding: 15px 25px;
+            text-decoration: none;
+            font-size: 18px;
+            color: white;
+            display: block;
+            transition: 0.3s;
+        }
+        .sidebar .closebtn {
+            position: absolute;
+            top: 15px;
+            right: 25px;
+            font-size: 36px;
+        }
+        .openbtn {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            font-size: 20px;
+            cursor: pointer;
+            background-color: transparent;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            z-index: 2;
+        }
+        header {
+            position: relative;
+            padding-left: 60px !important;
+        }
+        @media (max-width: 600px) {
+            .sidebar {
+                padding-top: 50px;
+            }
+            .sidebar a {
+                padding: 10px 20px;
+                font-size: 16px;
+            }
+        }
+    </style>
+    <button class="openbtn" onclick="openNav()">☰</button>
+    <div id="mySidebar" class="sidebar">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+        <a href="index.html">Home</a>
+        <a href="upload.html">Upload</a>
+        <a href="reports.html">Reports</a>
+        <a href="account.html">Account</a>
+        <a href="support.html">Support</a>
+    </div>
+    <script>
+        function openNav() {
+            document.getElementById("mySidebar").style.width = "250px";
+        }
+        function closeNav() {
+            document.getElementById("mySidebar").style.width = "0";
+        }
+    </script>
+    <div class="container">
+        <div class="card">
+            <div class="profile">
+                <h2>User Profile</h2>
+                <div class="profile-info">
+                    <p><strong>Name:</strong> John Doe</p>
+                    <p><strong>Email:</strong> john.doe@example.com</p>
+                    <p><strong>Joined:</strong> January 1, 2020</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="settings">
+                <h2>Account Settings</h2>
+                <form class="settings-form">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" value="John Doe">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" value="john.doe@example.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password">
+                    </div>
+
+                    <button type="submit" class="update-btn">Update Settings</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <style>
+        .profile {
+            text-align: center;
+            padding: 20px;
+        }
+        .profile-pic {
+            max-width: 150px;
+            border-radius: 50%;
+            margin: 20px auto;
+        }
+        .profile-info {
+            max-width: 300px;
+            margin: 0 auto;
+        }
+        .settings-form {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .update-btn {
+            width: 100%;
+            padding: 10px;
+            background: #423ab5;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .update-btn:hover {
+            background: #362d94;
+        }
+        @media (max-width: 600px) {
+            .container {
+                padding: 1rem;
+            }
+            .profile-info, .settings-form {
+                max-width: 100%;
+            }
+        }
+    </style>
+    </div>
+</body>
+</html>
